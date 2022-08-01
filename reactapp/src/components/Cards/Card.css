@@ -9,7 +9,7 @@
     background-position: center;    
     height: 100%;
     width: 100%;
-} */
+}
 
 #card{
     background-color: transparent;
@@ -35,21 +35,21 @@
 
 #card:hover #cardInner{
     transform: rotateY(180deg);
-}
+} */
 
-#frontCard, #backCard{
+/* #frontCard, #backCard{
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-}
+} 
 
 #backCard{
     transform: rotateY(180deg);
-}
+} 
 
-#cardInner2{
+ #cardInner2{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -73,9 +73,9 @@
 
 
 
-#card2:hover #cardInner2{
+ #card2:hover #cardInner2{
     transform: rotateY(180deg);
-}
+} 
 
 #frontCard2, #backCard2{
     position: absolute;
@@ -85,15 +85,14 @@
     backface-visibility: hidden;
 }
 
-#backCard2{
+ #backCard2{
     transform: rotateY(180deg);
-}
+} 
 
 #card, #card2{
     padding: 77px;
-}
-
-/* 
-#card img{
-    height: 280px;
 } */
+
+ 
+
+
