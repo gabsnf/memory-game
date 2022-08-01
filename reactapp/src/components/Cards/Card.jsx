@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import "./Card.css";
 
@@ -8,33 +9,29 @@ import "./Card.css";
 
 // const imagens = [CardYugioh, Frota, Paras];
 
-export function Card({img}) {
-const cartas = []
+export function Card({cartas, card, setCartas}) {
 const backCard = '../src/assets/yugioh.png'
-const [visibleImg, setVisibleImg] = useState(false)
-// let now = 0
 
-function flipCard(){
-  setVisibleImg(!visibleImg)
-  setTimeout(() => {
-    cartas.push(visibleImg)
-    setVisibleImg(false)
-  }, 5000)
+function flipCard(param){
+  let current = cartas.find(i => i.id === card.id)
+  current.visible = param
+  setCartas([...cartas])
 }
 
-function count(){
-for(let i = 0; i < 2; i++){
-  flipCard
-}
-}
+useEffect(() =>{
+  console.log(card)
+},[cartas])
+
 
 return(
-  <div className="container" onClick={() => count()}>
+  <div className="container" onClick={() => {
+    flipCard(!card.visible)
+    }}>
     {
-      !visibleImg ? (
+      !card.visible ? (
         <img src={backCard} />
       ): (
-        <img src={img} />
+        <img src={card.img} />
       )
     }
 
