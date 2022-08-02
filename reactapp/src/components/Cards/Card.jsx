@@ -10,10 +10,7 @@ function flipCard(param){
   current.visible = param
   setCartas([...cartas])
 
-  if(card.visible == card.visible){
-    setTimeout(() => {}, 2000)
-    !card.visible
-  }
+
 }
 
 useEffect(() =>{

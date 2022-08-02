@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Card } from "./components/Cards/Card";
 
-export function App() {
+export function App(card, ) {
   const [cartas, setCartas] = useState([]);
 
   const imagens = [
@@ -28,15 +28,28 @@ export function App() {
     setCartas(copyCartas);
   }, []);
 
+  useEffect(() =>{
+
+    if(cartas === true){
+    console.log("denis")
+    if(cartas.id === imagens){
+      console.log("inutilismo") 
+        current.visible = false
+    }
+
+}
+
+  },[cartas])
+  
   return(
     <div>
       {cartas && 
       cartas.map((item) => {
         return <Card key={item.id} card={item} setCartas={setCartas} cartas={cartas}/>
       })
-      }
+    }
     </div>
   )
-
+  
 
 }
