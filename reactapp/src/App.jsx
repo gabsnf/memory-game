@@ -38,23 +38,5 @@ export function App() {
     </div>
   )
 
-  // const [visible, setVisible] = useState(false);
 
-  // function handleVisible() {
-
-  //   setVisible(current => !current)
-
-  //   setVisible(imagens[i])
-
-  //   if(imagens[0]){
-  //     imagens[0] = imagens[1]
-  //   }
-
-  // }
-
-  return (
-    <div className="memory">
-      <Card />
-    </div>
-  );
 }
