@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Card } from "./components/Cards/Card";
 
-export function App(card, ) {
+export function App() {
   const [cartas, setCartas] = useState([]);
 
   const imagens = [
@@ -28,16 +28,23 @@ export function App(card, ) {
     setCartas(copyCartas);
   }, []);
 
-  useEffect(() =>{
+  useEffect(() => { 
+    
+    let array = []
+    array.push(cartas)
 
-    if(cartas === true){
-    console.log("denis")
-    if(cartas.id === imagens){
-      console.log("inutilismo") 
-        current.visible = false
-    }
+    
 
-}
+    // if (cartas.visible === true) {
+    //   console.log("denis")
+    // }
+    // else{
+    //   setTimeout(() => {
+        
+    //     setCartas(false)
+    //   }, 2000);
+    //   console.log("palmeiras")
+    // }
 
   },[cartas])
   
