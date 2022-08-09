@@ -10,12 +10,14 @@ export function App() {
     {
       id: 1,
       img: "/src/assets/frotaCard.jpeg",
-      visible:false
+      visible: false,
+      value: 2
     },
     {
       id: 2,
       img: "/src/assets/paras.jpeg",
-      visible:false
+      visible: false,
+      value: 3
     },
   ];
 
@@ -25,34 +27,22 @@ export function App() {
       newObj.id = 'copy_' + i.id 
       return newObj
     }));
+    
     setCartas(copyCartas);
   }, []);
 
   useEffect(() => { 
-    
-    let array = []
-    array.push(cartas)
 
-    
 
-    // if (cartas.visible === true) {
-    //   console.log("denis")
-    // }
-    // else{
-    //   setTimeout(() => {
-        
-    //     setCartas(false)
-    //   }, 2000);
-    //   console.log("palmeiras")
-    // }
+  
 
   },[cartas])
   
   return(
     <div>
       {cartas && 
-      cartas.map((item) => {
-        return <Card key={item.id} card={item} setCartas={setCartas} cartas={cartas}/>
+      cartas.map((item, value) => {
+        return <Card key={item.id} value={value.value} card={item} setCartas={setCartas} cartas={cartas} />
       })
     }
     </div>

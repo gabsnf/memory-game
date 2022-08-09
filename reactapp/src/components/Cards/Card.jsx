@@ -1,40 +1,46 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import "./Card.css";
+import { App } from '../../App'
 
 export function Card({cartas, card, setCartas}) {
-const backCard = '../src/assets/yugioh.png'
-// let array = []
+  const backCard = '../src/assets/yugioh.png'
+  const [compare, setCompare] = useState([])
+
 
 function flipCard(param){
   let current = cartas.find(i => i.id === card.id)
+  let currentVal = cartas.find(value => value.value === card.value)
   current.visible = param
-//   let all = current.img
-//   array.push(all)
-//   for(let i = 0; i < all.length; i++){
-//   if(array[i] === cartas.img){
-//     console.log("denis luccas lula flamengo")
-//   }
-//   else{
-  
-//     // setTimeout(() => {
-//     //   flipCard(false)
-//     // }, 2000);
-//     console.log("sasukenaruto")
-//   }
-// }  
-setCartas([...cartas])
+
+
+
+
+
+  setCartas([...cartas])
+
 
 }
 
 useEffect(() =>{
-  console.log(card)
-},[cartas])
+ 
+console.log(compare);
+
+
+
+
+  
+},[compare])
 
 
 return(
   <div className="container" onClick={() => {
+    console.log(" LOG DOS CARDS ");
+    console.log(card);
     flipCard(!card.visible)
+    // let tempArray = compare.concat([card])
+    setCompare((oldstate) => oldstate.concat([card]))
+    // console.log(tempArray)
     }}>
     {
       !card.visible ? (
@@ -43,7 +49,6 @@ return(
         <img src={card.img} />
       )
     }
-
 
   </div>
   )
