@@ -5,8 +5,8 @@ import { Card } from "./components/Cards/Card";
 
 export function App() {
   const [cartas, setCartas] = useState([]);
-
-  const imagens = [
+  const [openCards, setOpenCards] = useState([])
+  const [imagens, setImagens] = useState([
     {
       id: 1,
       img: "/src/assets/frotaCard.jpeg",
@@ -19,7 +19,8 @@ export function App() {
       visible: false,
       value: 3
     },
-  ];
+  ])
+
 
   useEffect(() => {
     let copyCartas = imagens.concat(imagens.map(i => {
@@ -32,17 +33,34 @@ export function App() {
   }, []);
 
   useEffect(() => { 
+    if(openCards.length === 2){
+      console.log("array tem dois itens")
+     if(openCards[0].value === openCards[1].value){
+      console.log("ta igual")
+      console.log(cartas);
+     const tempArray = cartas.filter((i) => {
+        i.value !== openCards[0].value
+        && i.visible == false
+      })
 
+      console.log(tempArray);
+      // setImagens(tempArray)
+      setCartas(tempArray)
+      setOpenCards([])
+     }
+    }
+    
+  },[openCards])
 
-  
-
-  },[cartas])
+  // useEffect(() => {
+  //   console.log(imagens);
+  // },[imagens])
   
   return(
     <div>
       {cartas && 
-      cartas.map((item, value) => {
-        return <Card key={item.id} value={value.value} card={item} setCartas={setCartas} cartas={cartas} />
+      cartas.map((item) => {
+        return <Card key={item.id} card={item} setCartas={setCartas} cartas={cartas} setOpenCards={setOpenCards} openCards={openCards}/>
       })
     }
     </div>

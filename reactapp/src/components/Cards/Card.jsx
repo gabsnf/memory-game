@@ -3,9 +3,8 @@ import { useState } from "react";
 import "./Card.css";
 import { App } from '../../App'
 
-export function Card({cartas, card, setCartas}) {
+export function Card({cartas, card, setCartas, setOpenCards, openCards}){
   const backCard = '../src/assets/yugioh.png'
-  const [compare, setCompare] = useState([])
 
 
 function flipCard(param){
@@ -13,35 +12,26 @@ function flipCard(param){
   let currentVal = cartas.find(value => value.value === card.value)
   current.visible = param
 
-
-
-
-
   setCartas([...cartas])
-
 
 }
 
-useEffect(() =>{
+// useEffect(() =>{
  
-console.log(compare);
+// console.log(compare);
 
-
-
-
-  
-},[compare])
+// },[compare])
 
 
 return(
   <div className="container" onClick={() => {
-    console.log(" LOG DOS CARDS ");
-    console.log(card);
     flipCard(!card.visible)
-    // let tempArray = compare.concat([card])
-    setCompare((oldstate) => oldstate.concat([card]))
-    // console.log(tempArray)
-    }}>
+    if(card.visible){
+      let tempArray = openCards.concat([card])
+     setOpenCards(tempArray)
+    }
+
+   }}>
     {
       !card.visible ? (
         <img src={backCard} />
