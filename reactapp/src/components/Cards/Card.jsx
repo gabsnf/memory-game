@@ -23,7 +23,8 @@ function flipCard(param){
 
 
 return(
-  <div className="container" onClick={() => {
+    
+  <div className="function" onClick={() => {
     flipCard(!card.visible)
     if(card.visible){
       let tempArray = openCards.concat([card])
@@ -40,5 +41,6 @@ return(
     }
 
   </div>
+
   )
 }
