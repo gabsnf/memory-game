@@ -6,7 +6,8 @@ import { Card } from "./components/Cards/Card";
 export function App() {
   const [cartas, setCartas] = useState([]);
   const [openCards, setOpenCards] = useState([])
-  const [imagens, setImagens] = useState([
+
+  const imagens = [
     {
       id: 1,
       img: "/src/assets/frotaCard.jpeg",
@@ -19,7 +20,7 @@ export function App() {
       visible: false,
       value: 3
     },
-  ])
+  ]
 
 
   useEffect(() => {
@@ -33,18 +34,15 @@ export function App() {
   }, []);
 
   useEffect(() => { 
-    if(openCards.length === 2){
+    if(openCards.length == 2){
       console.log("array tem dois itens")
      if(openCards[0].value === openCards[1].value){
       console.log("ta igual")
       console.log(cartas);
      const tempArray = cartas.filter((i) => {
-        i.value !== openCards[0].value
-        && i.visible == false
+        i.value !== openCards[0].value && i.visible == false
       })
-
       console.log(tempArray);
-      // setImagens(tempArray)
       setCartas(tempArray)
       setOpenCards([])
      }
@@ -52,9 +50,6 @@ export function App() {
     
   },[openCards])
 
-  // useEffect(() => {
-  //   console.log(imagens);
-  // },[imagens])
   
   return(
     <div>
